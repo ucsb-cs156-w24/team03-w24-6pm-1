@@ -57,7 +57,7 @@ function DiningCommonsMenuItemForm({ initialContents, submitAction, buttonLabel 
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="diningcommonscode">Description</Form.Label>
+                <Form.Label htmlFor="diningcommonscode">Dining Commons Code</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-diningcommonscode"}
                     id="diningcommonscode"
