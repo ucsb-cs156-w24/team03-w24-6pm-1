@@ -1,11 +1,10 @@
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, waitFor, fireEvent, screen } from "@testing-library/react";
 import ArticlesCreatePage from "main/pages/Articles/ArticlesCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
-
 import axios from "axios";
 import AxiosMockAdapter from "axios-mock-adapter";
 
@@ -31,18 +30,17 @@ jest.mock('react-router-dom', () => {
 
 describe("ArticlesCreatePage tests", () => {
 
-    const axiosMock = new AxiosMockAdapter(axios);
+    const axiosMock =new AxiosMockAdapter(axios);
 
     beforeEach(() => {
-        jest.clearAllMocks();
         axiosMock.reset();
         axiosMock.resetHistory();
         axiosMock.onGet("/api/currentUser").reply(200, apiCurrentUserFixtures.userOnly);
         axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
     });
 
-    const queryClient = new QueryClient();
     test("renders without crashing", () => {
+        const queryClient = new QueryClient();
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
@@ -51,20 +49,20 @@ describe("ArticlesCreatePage tests", () => {
             </QueryClientProvider>
         );
     });
-    
-    test("on submit, makes request to backend, and redirects to /articles", async () => {
+
+    test("when you fill in the form and hit submit, it makes a request to the backend", async () => {
 
         const queryClient = new QueryClient();
-        const articles = {
-            id: 3,
-            title: "Artificial Intelligence and the Future of Humans",
-            url: "https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/",
-            explanation: "Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.",
+        const article = {
+            id: 1,
+            title: "article1title",
+            url: "https://www.article1.com",
+            explanation: "article1explanation.",
             email: "shashank790@ucsb.edu",
-            dateAdded: "2024-02-14T00:00:00"
+            dateAdded: "2024-02-14T00:00"
         };
 
-        axiosMock.onPost("/api/articles/post").reply(202, articles);
+        axiosMock.onPost("/api/articles/post").reply( 202, article );
 
         render(
             <QueryClientProvider client={queryClient}>
@@ -72,52 +70,43 @@ describe("ArticlesCreatePage tests", () => {
                     <ArticlesCreatePage />
                 </MemoryRouter>
             </QueryClientProvider>
-        )
+        );
 
         await waitFor(() => {
-            expect(screen.getByLabelText("Title")).toBeInTheDocument();
+            expect(screen.getByTestId("ArticlesForm-title")).toBeInTheDocument();
         });
 
-        const titleInput = screen.getByLabelText("Title");
-        expect(titleInput).toBeInTheDocument();
+        const titleField = screen.getByTestId("ArticlesForm-title");
+        const urlField = screen.getByTestId("ArticlesForm-url");
+        const explanationField = screen.getByTestId("ArticlesForm-explanation");
+        const emailField = screen.getByTestId("ArticlesForm-email");
+        const dateAddedField = screen.getByTestId("ArticlesForm-dateAdded");
+        const submitButton = screen.getByTestId("ArticlesForm-submit");
 
-        const urlInput = screen.getByLabelText("URL");
-        expect(urlInput).toBeInTheDocument();
+        fireEvent.change(titleField, { target: { value: 'article1title' } });
+        fireEvent.change(urlField, { target: { value: 'https://www.article1.com' } });
+        fireEvent.change(explanationField, { target: { value: 'article1explanation' } });
+        fireEvent.change(emailField, { target: { value: 'shashank790@ucsb.edu' } });
+        fireEvent.change(dateAddedField, { target: { value: '2024-02-14T00:00' } });
+        fireEvent.click(submitButton);
 
-        const explanationInput = screen.getByLabelText("Explanation");
-        expect(explanationInput).toBeInTheDocument();
+        expect(submitButton).toBeInTheDocument();
 
-        const emailInput = screen.getByLabelText("Email");
-        expect(emailInput).toBeInTheDocument();
+        fireEvent.click(submitButton);
 
-        const dateAddedInput = screen.getByLabelText("Date Added");
-        expect(dateAddedInput).toBeInTheDocument();
+        await waitFor(() => expect(axiosMock.history.post.length).toBe(2));
 
-        const createButton = screen.getByText("Create");
-        expect(createButton).toBeInTheDocument();
-
-        fireEvent.change(titleInput, { target: { value: 'Artificial Intelligence and the Future of Humans' } })
-        fireEvent.change(urlInput, { target: { value: 'https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/' } })
-        fireEvent.change(explanationInput, { target: { value: 'Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.' } })
-        fireEvent.change(emailInput, { target: { value: 'shashank790@ucsb.edu' } })
-        fireEvent.change(dateAddedInput, { target: { value: '2024-02-14T00:00' } })
-
-        fireEvent.click(createButton);
-
-        await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
-
-        expect(axiosMock.history.post[0].params).toEqual({
-            title: "Artificial Intelligence and the Future of Humans",
-            url: "https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/",
-            explanation: "Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.",
-            email: "shashank790@ucsb.edu",
-            dateAdded: "2024-02-14T00:00"
+        expect(axiosMock.history.post[0].params).toEqual(
+            {
+            "title": "article1title",
+            "url": "https://www.article1.com",
+            "explanation": "article1explanation",
+            "email": "shashank790@ucsb.edu",
+            "dateAdded": "2024-02-14T00:00"
         });
-    
-        // assert - check that the toast was called with the expected message
-        expect(mockToast).toBeCalledWith("New articles Created - id: 3 title: Artificial Intelligence and the Future of Humans");
+
+        expect(mockToast).toBeCalledWith("New article Created - id: 1 title: article1title");
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
-
     });
-});
 
+});
