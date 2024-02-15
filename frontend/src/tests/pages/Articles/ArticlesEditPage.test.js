@@ -75,19 +75,19 @@ describe("ArticlesEditPage tests", () => {
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
             axiosMock.onGet("/api/articles", { params: { id: 17 } }).reply(200, {
                 id: 17,
-                title: "Apple debuts iPhone 15 and iPhone 15 Plus",
-                url: "https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/",
-                explanation: "A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C",
-                email: "haroldmo@ucsb.edu",
-                dateAdded: "2022-03-11T00:00:00"
+                title: "How artificial intelligence is transforming the world",
+                url: "https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/",
+                explanation: "Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.",
+                email: "shashank790@ucsb.edu",
+                dateAdded: "2024-02-14T00:00:00"
             });
             axiosMock.onPut('/api/articles').reply(200, {
                 id: "17",
-                title: "Explained: Neural networks",
-                url: "https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414",
-                explanation: "Ballyhooed artificial-intelligence technique known as “deep learning” revives 70-year-old idea.",
-                email: "haroldmo@ucsb.edu",
-                dateAdded: "2022-03-11T00:00:00"
+                title: "The Future Of Artificial Intelligence",
+                url: "https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-artificial-intelligence/?sh=3654736b4ac4",
+                explanation: "Peter van der Made is the founder and CTO of BrainChip Ltd. BrainChip produces advanced AI processors in digital neuromorphic technologies.",
+                email: "shashank790@ucsb.edu",
+                dateAdded: "2024-02-14T00:00:00"
             });
         });
 
@@ -117,43 +117,43 @@ describe("ArticlesEditPage tests", () => {
             expect(idField).toHaveValue("17");
 
             expect(titleField).toBeInTheDocument();
-            expect(titleField).toHaveValue("Apple debuts iPhone 15 and iPhone 15 Plus");
+            expect(titleField).toHaveValue("How artificial intelligence is transforming the world");
 
             expect(urlField).toBeInTheDocument();
-            expect(urlField).toHaveValue("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
+            expect(urlField).toHaveValue("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
             
             expect(explanationField).toBeInTheDocument();
-            expect(explanationField).toHaveValue("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C");
+            expect(explanationField).toHaveValue("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.");
             
             expect(emailField).toBeInTheDocument();
-            expect(emailField).toHaveValue("haroldmo@ucsb.edu");
+            expect(emailField).toHaveValue("shashank790@ucsb.edu");
             
             expect(dateAddedField).toBeInTheDocument();
-            expect(dateAddedField).toHaveValue("2022-03-11T00:00");
+            expect(dateAddedField).toHaveValue("2024-02-14T00:00");
 
             expect(submitButton).toHaveTextContent("Update");
 
-            fireEvent.change(titleField, { target: { value: 'Explained: Neural networks' } });
-            fireEvent.change(urlField, { target: { value: 'https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414' } });
-            fireEvent.change(explanationField, { target: { value: 'Ballyhooed artificial-intelligence technique known as “deep learning” revives 70-year-old idea.' } });
-            fireEvent.change(emailField, { target: { value: 'haroldmo@ucsb.edu' } });
-            fireEvent.change(dateAddedField, { target: { value: '2022-03-11T00:00:00' } });
+            fireEvent.change(titleField, { target: { value: 'The Future Of Artificial Intelligence' } });
+            fireEvent.change(urlField, { target: { value: 'https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-artificial-intelligence/?sh=3654736b4ac4' } });
+            fireEvent.change(explanationField, { target: { value: 'Peter van der Made is the founder and CTO of BrainChip Ltd. BrainChip produces advanced AI processors in digital neuromorphic technologies.' } });
+            fireEvent.change(emailField, { target: { value: 'shashank790@ucsb.edu' } });
+            fireEvent.change(dateAddedField, { target: { value: '2024-02-14T00:00:00' } });
 
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("Articles Updated - id: 17 title: Explained: Neural networks");
+            expect(mockToast).toBeCalledWith("Articles Updated - id: 17 title: The Future Of Artificial Intelligence");
             
             expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
-                title: 'Explained: Neural networks',
-                url: 'https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414',
-                explanation: 'Ballyhooed artificial-intelligence technique known as “deep learning” revives 70-year-old idea.',
-                email: 'haroldmo@ucsb.edu',
-                dateAdded: '2022-03-11T00:00'
+                title: 'The Future Of Artificial Intelligence',
+                url: 'https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-artificial-intelligence/?sh=3654736b4ac4',
+                explanation: 'Peter van der Made is the founder and CTO of BrainChip Ltd. BrainChip produces advanced AI processors in digital neuromorphic technologies.',
+                email: 'shashank790@ucsb.edu',
+                dateAdded: '2024-02-14T00:00'
             })); // posted object
 
 
@@ -180,23 +180,23 @@ describe("ArticlesEditPage tests", () => {
             const submitButton = screen.getByTestId("ArticlesForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(titleField).toHaveValue("Apple debuts iPhone 15 and iPhone 15 Plus");
-            expect(urlField).toHaveValue("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
-            expect(explanationField).toHaveValue("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C")
-            expect(emailField).toHaveValue("haroldmo@ucsb.edu");
-            expect(dateAddedField).toHaveValue("2022-03-11T00:00");
+            expect(titleField).toHaveValue("How artificial intelligence is transforming the world");
+            expect(urlField).toHaveValue("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
+            expect(explanationField).toHaveValue("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.")
+            expect(emailField).toHaveValue("shashank790@ucsb.edu");
+            expect(dateAddedField).toHaveValue("2024-02-14T00:00");
             expect(submitButton).toBeInTheDocument();
 
-            fireEvent.change(titleField, { target: { value: 'Explained: Neural networks' } });
-            fireEvent.change(urlField, { target: { value: 'https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414tally Giant Burritos' } });
-            fireEvent.change(explanationField, { target: { value: 'Ballyhooed artificial-intelligence technique known as “deep learning” revives 70-year-old idea.' } });
-            fireEvent.change(emailField, { target: { value: 'haroldmo@ucsb.edu' } });
-            fireEvent.change(dateAddedField, { target: { value: '2022-03-11T00:00:00' } });
+            fireEvent.change(titleField, { target: { value: 'The Future Of Artificial Intelligence' } });
+            fireEvent.change(urlField, { target: { value: 'https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-artificial-intelligence/?sh=3654736b4ac4' } });
+            fireEvent.change(explanationField, { target: { value: 'Peter van der Made is the founder and CTO of BrainChip Ltd. BrainChip produces advanced AI processors in digital neuromorphic technologies.' } });
+            fireEvent.change(emailField, { target: { value: 'shashank790@ucsb.edu' } });
+            fireEvent.change(dateAddedField, { target: { value: '2024-02-14T00:00:00' } });
 
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("Articles Updated - id: 17 title: Explained: Neural networks");
+            expect(mockToast).toBeCalledWith("Articles Updated - id: 17 title: The Future Of Artificial Intelligence");
             expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
         });
 

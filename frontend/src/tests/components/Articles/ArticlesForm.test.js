@@ -5,15 +5,7 @@ import ArticlesForm from "main/components/Articles/ArticlesForm";
 import { articlesFixtures } from "fixtures/articlesFixtures";
 
 import { QueryClient, QueryClientProvider } from "react-query";
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
 
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
 const mockedNavigate = jest.fn();
 
 jest.mock('react-router-dom', () => ({

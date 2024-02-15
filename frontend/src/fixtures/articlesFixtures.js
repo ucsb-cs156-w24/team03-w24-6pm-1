@@ -1,23 +1,13 @@
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
-
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
-
 const articlesFixtures = {
     oneArticle:
     [
       {
        "id": 1,
-        "title": "LeBron James Breaks Kareem Abdul-Jabbar’s N.B.A. Scoring Record",
-        "url": "https://www.nytimes.com/2023/02/07/sports/lebron-james-nba-scoring-record.html#:~:text=LOS%20ANGELES%20%E2%80%94%20One%20of%20the,of%2038%2C387%20points%20on%20Tuesday.",
-        "explanation": "James, the Los Angeles Lakers star, scored the record-breaking 38,388th point that had eluded generations of superstars.",
-        "email": "haroldmo@ucsb.edu",
-        "dateAdded": "2022-03-11T00:00:00"
+        "title": "Where is Malaysian Airlines Flight 370? A simple barnacle could help lead us to the missing plane.",
+        "url": "https://www.nationalgeographic.com/environment/article/barnacles-missing-malaysian-airlines-flight-drift-path",
+        "explanation": "By studying the shells of washed up barnacles, scientists have developed new methods for reconstructing the drift of ocean debris that may help narrow the search.",
+        "email": "shashank790@ucsb.edu",
+        "dateAdded": "2024-02-14T00:00:00"
       }
     ],
 
@@ -25,29 +15,29 @@ const articlesFixtures = {
     [
         {
             "id": 2,
-             "title": "Apple debuts iPhone 15 and iPhone 15 Plus",
-             "url": "https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/",
-             "explanation": "A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C",
-             "email": "haroldmo@ucsb.edu",
-             "dateAdded": "2022-03-11T00:00:00"
+             "title": "How artificial intelligence is transforming the world",
+             "url": "https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/",
+             "explanation": "Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.",
+             "email": "shashank790@ucsb.edu",
+             "dateAdded": "2024-02-14T00:00:00"
         },
 
         {
             "id": 3,
-             "title": "Apple 16-inch M3 Max MacBook Pro review: A desktop among laptops",
-             "url": "https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/",
-             "explanation": "The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air",
-             "email": "haroldmo@ucsb.edu",
-             "dateAdded": "2022-03-11T00:00:00"
+             "title": "Artificial Intelligence and the Future of Humans",
+             "url": "https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/",
+             "explanation": "Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.",
+             "email": "shashank790@ucsb.edu",
+             "dateAdded": "2024-02-14T00:00:00"
         },
 
         {
             "id": 4,
-             "title": "Explained: Neural networks",
-             "url": "https://news.mit.edu/2017/explained-neural-networks-deep-learning-0414",
-             "explanation": "Ballyhooed artificial-intelligence technique known as “deep learning” revives 70-year-old idea.",
-             "email": "haroldmo@ucsb.edu",
-             "dateAdded": "2022-03-11T00:00:00"
+             "title": "The Future Of Artificial Intelligence",
+             "url": "https://www.forbes.com/sites/forbestechcouncil/2023/04/10/the-future-of-artificial-intelligence/?sh=3654736b4ac4",
+             "explanation": "Peter van der Made is the founder and CTO of BrainChip Ltd. BrainChip produces advanced AI processors in digital neuromorphic technologies.",
+             "email": "shashank790@ucsb.edu",
+             "dateAdded": "2024-02-14T00:00:00"
         },
         
     ]

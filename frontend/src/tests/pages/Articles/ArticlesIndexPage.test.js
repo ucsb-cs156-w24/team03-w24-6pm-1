@@ -1,9 +1,9 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import mockConsole from "jest-mock-console";
 import { articlesFixtures } from "fixtures/articlesFixtures";
+import ArticlesIndexPage from "main/pages/Articles/ArticlesIndexPage";
 
 import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
@@ -82,19 +82,19 @@ describe("ArticlesIndexPage tests", () => {
         const createArticlesButton = screen.queryByText("Create Articles");
         expect(createArticlesButton).not.toBeInTheDocument();
 
-        const title = screen.getByText("Apple 16-inch M3 Max MacBook Pro review: A desktop among laptops");
+        const title = screen.getByText("Artificial Intelligence and the Future of Humans");
         expect(title).toBeInTheDocument();
 
-        const url = screen.getByText("https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/");
+        const url = screen.getByText("https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/");
         expect(url).toBeInTheDocument();
 
-        const explanation = screen.getByText("The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air");
+        const explanation = screen.getByText("Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.");
         expect(explanation).toBeInTheDocument();
 
-        const email = screen.getAllByText("haroldmo@ucsb.edu")[0];
+        const email = screen.getAllByText("shashank790@ucsb.edu")[0];
         expect(email).toBeInTheDocument();
 
-        const dateAdded = screen.getAllByText("2022-03-11T00:00:00")[0];
+        const dateAdded = screen.getAllByText("2024-02-14T00:00:00")[0];
         expect(dateAdded).toBeInTheDocument();
 
         // for non-admin users, details button is visible, but the edit and delete buttons should not be visible

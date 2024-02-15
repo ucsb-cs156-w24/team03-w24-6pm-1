@@ -4,15 +4,7 @@ import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
 import ArticlesTable from "main/components/Articles/ArticlesTable";
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
 
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
 
 const mockedNavigate = jest.fn();
 
@@ -79,18 +71,18 @@ describe("ArticlesTables tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Apple debuts iPhone 15 and iPhone 15 Plus");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("How artificial intelligence is transforming the world");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Apple 16-inch M3 Max MacBook Pro review: A desktop among laptops");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Artificial Intelligence and the Future of Humans");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -127,18 +119,18 @@ describe("ArticlesTables tests", () => {
     });
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Apple debuts iPhone 15 and iPhone 15 Plus");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("How artificial intelligence is transforming the world");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Apple 16-inch M3 Max MacBook Pro review: A desktop among laptops");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-title`)).toHaveTextContent("Artificial Intelligence and the Future of Humans");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-url`)).toHaveTextContent("https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -159,12 +151,12 @@ describe("ArticlesTables tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Apple debuts iPhone 15 and iPhone 15 Plus");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("How artificial intelligence is transforming the world");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -191,12 +183,12 @@ describe("ArticlesTables tests", () => {
     );
 
     // assert - check that the expected content is rendered
-    expect(await screen.findByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("Apple debuts iPhone 15 and iPhone 15 Plus");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.apple.com/newsroom/2023/09/apple-debuts-iphone-15-and-iphone-15-plus/");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("A huge leap forward for iPhone with a gorgeous new design featuring a durable, color-infused back glass and new contoured edge; the Dynamic Island; a 48MP Main camera with 2x Telephoto; and USB‑C");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("haroldmo@ucsb.edu");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2022-03-11T00:00:00");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-title`)).toHaveTextContent("How artificial intelligence is transforming the world");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-url`)).toHaveTextContent("https://www.brookings.edu/articles/how-artificial-intelligence-is-transforming-the-world/");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Artificial intelligence (AI) is a wide-ranging tool that enables people to rethink how we integrate information, analyze data, and use the resulting insights to improve decision making—and already it is transforming every walk of life. In this report, Darrell West and John Allen discuss AI’s application across a variety of sectors, address issues in its development, and offer recommendations for getting the most out of AI while still protecting important human values.");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-email`)).toHaveTextContent("shashank790@ucsb.edu");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-dateAdded`)).toHaveTextContent("2024-02-14T00:00:00");
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();

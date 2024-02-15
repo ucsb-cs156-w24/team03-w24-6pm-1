@@ -3,15 +3,7 @@ import ArticlesForm from "main/components/Articles/ArticlesForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
 
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
 export default function ArticlesCreatePage({storybook=false}) {
 
   const objectToAxiosParams = (articles) => ({

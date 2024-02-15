@@ -27,7 +27,7 @@ export default function ArticlesIndexPage() {
                     href="/articles/create"
                     style={{ float: "right" }}
                 >
-                    Create Articles
+                    Create Article
                 </Button>
             )
         } 

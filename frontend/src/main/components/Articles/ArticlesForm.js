@@ -1,17 +1,8 @@
 import { Button, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
 
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
 function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" }) {
-
 
     // Stryker disable all
     const {
@@ -127,7 +118,6 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                     {errors.dateAdded?.message}
                 </Form.Control.Feedback>
             </Form.Group>
-
 
 
             <Button

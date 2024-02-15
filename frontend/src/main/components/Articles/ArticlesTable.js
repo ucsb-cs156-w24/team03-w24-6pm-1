@@ -5,15 +5,7 @@ import { useBackendMutation } from "main/utils/useBackend";
 import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/articlesUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
-// @Id
-// @GeneratedValue(strategy = GenerationType.IDENTITY)
-// private long id;
 
-// private String title;
-// private String url;
-// private String explanation;
-// private String email;
-// private LocalDateTime dateAdded;
 export default function ArticlesTable({
     articles,
     currentUser,

@@ -51,24 +51,17 @@ describe("ArticlesCreatePage tests", () => {
             </QueryClientProvider>
         );
     });
-    // {
-    //     "id": 3,
-    //      "title": "Apple 16-inch M3 Max MacBook Pro review: A desktop among laptops",
-    //      "url": "https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/",
-    //      "explanation": "The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air",
-    //      "email": "haroldmo@ucsb.edu",
-    //      "dateAdded": "2022-03-11T00:00:00"
-    // },
+    
     test("on submit, makes request to backend, and redirects to /articles", async () => {
 
         const queryClient = new QueryClient();
         const articles = {
             id: 3,
-            title: "Apple 16-inch M3 Max",
-            url: "https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/",
-            explanation: "The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air",
-            email: "haroldmo@ucsb.edu",
-            dateAdded: "2022-03-11T00:00"
+            title: "Artificial Intelligence and the Future of Humans",
+            url: "https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/",
+            explanation: "Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.",
+            email: "shashank790@ucsb.edu",
+            dateAdded: "2024-02-14T00:00:00"
         };
 
         axiosMock.onPost("/api/articles/post").reply(202, articles);
@@ -103,26 +96,26 @@ describe("ArticlesCreatePage tests", () => {
         const createButton = screen.getByText("Create");
         expect(createButton).toBeInTheDocument();
 
-        fireEvent.change(titleInput, { target: { value: 'Apple 16-inch M3 Max' } })
-        fireEvent.change(urlInput, { target: { value: 'https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/' } })
-        fireEvent.change(explanationInput, { target: { value: 'The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air' } })
-        fireEvent.change(emailInput, { target: { value: 'haroldmo@ucsb.edu' } })
-        fireEvent.change(dateAddedInput, { target: { value: '2022-03-11T00:00' } })
+        fireEvent.change(titleInput, { target: { value: 'Artificial Intelligence and the Future of Humans' } })
+        fireEvent.change(urlInput, { target: { value: 'https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/' } })
+        fireEvent.change(explanationInput, { target: { value: 'Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.' } })
+        fireEvent.change(emailInput, { target: { value: 'shashank790@ucsb.edu' } })
+        fireEvent.change(dateAddedInput, { target: { value: '2024-02-14T00:00' } })
 
         fireEvent.click(createButton);
 
         await waitFor(() => expect(axiosMock.history.post.length).toBe(1));
 
         expect(axiosMock.history.post[0].params).toEqual({
-            title: "Apple 16-inch M3 Max",
-            url: "https://techcrunch.com/2023/11/06/apple-macbook-pro-review-m3-max/",
-            explanation: "The laptop, which starts at $2,500 (plus some pricey add-ons), splits the difference between the Mac Studio and MacBook Air",
-            email: "haroldmo@ucsb.edu",
-            dateAdded: "2022-03-11T00:00"
+            title: "Artificial Intelligence and the Future of Humans",
+            url: "https://www.pewresearch.org/internet/2018/12/10/artificial-intelligence-and-the-future-of-humans/",
+            explanation: "Experts say the rise of artificial intelligence will make most people better off over the next decade, but many have concerns about how advances in AI will affect what it means to be human, to be productive and to exercise free will.",
+            email: "shashank790@ucsb.edu",
+            dateAdded: "2024-02-14T00:00"
         });
     
         // assert - check that the toast was called with the expected message
-        expect(mockToast).toBeCalledWith("New articles Created - id: 3 title: Apple 16-inch M3 Max");
+        expect(mockToast).toBeCalledWith("New articles Created - id: 3 title: Artificial Intelligence and the Future of Humans");
         expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
 
     });
