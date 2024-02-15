@@ -30,7 +30,7 @@ describe("UserTable tests", () => {
           </QueryClientProvider>
         );
             
-        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date"];
+        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date Added"];
         const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
         const testId = "ArticlesTable";
 
@@ -59,7 +59,7 @@ describe("UserTable tests", () => {
 
         );
 
-        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date"];
+        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date Added"];
         const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
         const testId = "ArticlesTable";
 
@@ -97,7 +97,7 @@ describe("UserTable tests", () => {
     
         );
     
-        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date"];
+        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date Added"];
         const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
         const testId = "ArticlesTable";
     
