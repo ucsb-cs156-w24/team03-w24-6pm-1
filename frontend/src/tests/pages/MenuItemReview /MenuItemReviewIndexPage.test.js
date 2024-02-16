@@ -86,7 +86,7 @@ describe("MenuItemReviewIndexPage tests", () => {
         const createReviewButton = screen.queryByText("Create Review");
         expect(createReviewButton).not.toBeInTheDocument();
 
-        const comment = screen.getByText("Second comment");
+        const comment = screen.getByText("Second Comment");
         expect(comment).toBeInTheDocument();
 
         // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
