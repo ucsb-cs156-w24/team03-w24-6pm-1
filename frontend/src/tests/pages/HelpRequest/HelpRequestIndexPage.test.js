@@ -43,9 +43,6 @@ describe("HelpRequestIndexPage tests", () => {
         axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
     };
 
-    const queryClient = new QueryClient();
-
-
 
     test("Renders with Create Button for admin user", async () => {
         // arrange
