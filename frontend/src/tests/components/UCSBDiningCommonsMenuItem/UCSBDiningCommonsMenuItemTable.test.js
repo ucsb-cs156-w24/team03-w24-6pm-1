@@ -181,7 +181,7 @@ describe("UCSB Dining Commons Table tests", () => {
     
     
     // assert - check that the navigate function was called with the expected path
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/ucsbdiningcommonsmenuitems/edit/1'));
+    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/diningcommonsmenuitem/edit/1'));
     
 
   });

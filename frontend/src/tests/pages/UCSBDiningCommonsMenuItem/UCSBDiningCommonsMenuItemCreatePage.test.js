@@ -102,7 +102,7 @@ describe("UCSBDiningCommonsMenuItem tests", () => {
 
         // assert - check that the toast was called with the expected message
         expect(mockToast).toBeCalledWith("New menu Created - id: 3 name: South Coast Deli diningCommonsCode: dlg station: Sandwiches and Salads");
-        expect(mockNavigate).toBeCalledWith({ "to": "/ucsbdiningcommonsmenuitems" });
+        expect(mockNavigate).toBeCalledWith({ "to": "/diningcommonsmenuitem" });
 
     });
 });
