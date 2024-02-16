@@ -118,5 +118,54 @@ describe("UserTable tests", () => {
 
   });
 
+  test("renders empty table correctly", () => {
+    
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+
+    // act
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <HelpRequestTable requests={[]} currentUser={currentUser} />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+
+    const expectedHeaders = ["id", "RequesterEmail", "TeamId", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
+    const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+    const testId = "HelpRequestTable";
+    // assert
+    expectedHeaders.forEach((headerText) => {
+      const header = screen.getByText(headerText);
+      expect(header).toBeInTheDocument();
+    });
+
+    expectedFields.forEach((field) => {
+      const fieldElement = screen.queryByTestId(`${testId}-cell-row-0-col-${field}`);
+      expect(fieldElement).not.toBeInTheDocument();
+    });
+  });
+  
+  test("Delete button calls delete callback", async () => {
+    // arrange
+    const currentUser = currentUserFixtures.adminUser;
+
+    // act - render the component
+    render(
+      <QueryClientProvider client={queryClient}>
+        <MemoryRouter>
+          <HelpRequestTable requests={helpRequestFixtures.threeHelpRequests} currentUser={currentUser} />
+        </MemoryRouter>
+      </QueryClientProvider>
+    );
+    const testId = "HelpRequestTable";
+
+    const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+    expect(deleteButton).toBeInTheDocument();
+
+    // act - click the delete button
+    fireEvent.click(deleteButton);
+  });
 });
 
