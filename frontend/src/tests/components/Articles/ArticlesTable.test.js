@@ -16,8 +16,12 @@ jest.mock('react-router-dom', () => ({
 describe("UserTable tests", () => {
     const queryClient = new QueryClient();
 
+    const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date Added"];
+    const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
+    const testId = "ArticlesTable";
+
     test("renders empty table correctly", () => {
-    
+
         // arrange
         const currentUser = currentUserFixtures.adminUser;
     
@@ -29,10 +33,6 @@ describe("UserTable tests", () => {
             </MemoryRouter>
           </QueryClientProvider>
         );
-            
-        const expectedHeaders = ["id", "Title", "URL", "Explanation", "Email", "Date Added"];
-        const expectedFields = ["id", "title", "url", "explanation", "email", "dateAdded"];
-        const testId = "ArticlesTable";
 
         // assert
         expectedHeaders.forEach((headerText) => {
