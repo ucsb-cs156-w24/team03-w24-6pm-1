@@ -1,6 +1,6 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
 import { useParams } from "react-router-dom";
-import RestaurantForm from 'main/components/Restaurants/RestaurantForm';
+import UCSBDiningCommonsMenuItemForm from 'main/components/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemForm';
 import { Navigate } from 'react-router-dom'
 import { useBackend, useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
@@ -21,27 +21,28 @@ export default function UCSBDiningCommonsMenuItemEditPage({storybook=false}) {
             }
         );
 
-    const objectToAxiosPutParams = (restaurant) => ({
-        url: "/api/restaurants",
+    const objectToAxiosPutParams = (menu) => ({
+        url: "/api/ucsbdiningcommonsmenuitems",
         method: "PUT",
         params: {
-            id: restaurant.id,
+            id: menu.id,
         },
         data: {
-            name: restaurant.name,
-            description: restaurant.description,
+            name: menu.name,
+            station: menu.station,
+            diningCommonsCode: menu.diningCommonsCode
         }
     });
 
-    const onSuccess = (restaurant) => {
-        toast(`Restaurant Updated - id: ${restaurant.id} name: ${restaurant.name}`);
+    const onSuccess = (menu) => {
+        toast(`UCSBDiningCommonsMenuItem Updated - id: ${menu.id} name: ${menu.name} station: ${menu.station} diningCommonsCode: ${menu.diningCommonsCode}`);
     }
 
     const mutation = useBackendMutation(
         objectToAxiosPutParams,
         { onSuccess },
         // Stryker disable next-line all : hard to set up test for caching
-        [`/api/restaurants?id=${id}`]
+        [`/api/diningcommonsmenuitem?id=${id}`]
     );
 
     const { isSuccess } = mutation
@@ -51,15 +52,15 @@ export default function UCSBDiningCommonsMenuItemEditPage({storybook=false}) {
     }
 
     if (isSuccess && !storybook) {
-        return <Navigate to="/restaurants" />
+        return <Navigate to="/diningcommonsmenuitem" />
     }
 
     return (
         <BasicLayout>
             <div className="pt-2">
-                <h1>Edit Restaurant</h1>
+                <h1>Edit UCSB Dining Commons Menu Item</h1>
                 {
-                    restaurant && <RestaurantForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={restaurant} />
+                    menu && <UCSBDiningCommonsMenuItemForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={menu} />
                 }
             </div>
         </BasicLayout>

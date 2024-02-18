@@ -52,6 +52,8 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
+        const codeField = screen.getByTestId(`${testId}-diningcommonscode`);
+        expect(codeField).toHaveValue(ucsbDiningCommonsMenuItemFixtures.oneItem.diningCommonsCode);
 
         expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
         expect(screen.getByText(`Id`)).toBeInTheDocument();

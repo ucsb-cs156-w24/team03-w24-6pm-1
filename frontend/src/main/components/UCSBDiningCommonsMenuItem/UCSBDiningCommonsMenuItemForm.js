@@ -62,13 +62,13 @@ function DiningCommonsMenuItemForm({ initialContents, submitAction, buttonLabel 
                     data-testid={testIdPrefix + "-diningcommonscode"}
                     id="diningcommonscode"
                     type="text"
-                    isInvalid={Boolean(errors.diningcommonscode)}
-                    {...register("diningcommonscode", {
+                    isInvalid={Boolean(errors.diningCommonsCode)}
+                    {...register("diningCommonsCode", {
                         required: "diningcommonscode is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
-                    {errors.diningcommonscode?.message}
+                    {errors.diningCommonsCode?.message}
                 </Form.Control.Feedback>
             </Form.Group>
 
