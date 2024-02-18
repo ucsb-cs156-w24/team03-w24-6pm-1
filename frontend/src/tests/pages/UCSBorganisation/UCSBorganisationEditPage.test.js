@@ -82,10 +82,10 @@ describe("UCSBorganisationEditPage tests", () => {
             });
             axiosMock.onPut('/api/UCSBOrganization').reply(200, {
                 orgCode: "GDSC",
-                orgTranslationShort: "Google Developer Student Clubs",
+                orgTranslationShort: "Google Developer Seniors Clubs",
                 orgTranslation: "Google Developer Student Clubs",
                 inactive : "false"
-            });
+            });   
         });
 
         const queryClient = new QueryClient();
@@ -126,7 +126,7 @@ describe("UCSBorganisationEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("UCSBorganisation Updated - orgCode: GDSC orgTranslationShort: Google Developer Student Clubs orgTranslation: Google Developer Student Clubs inactive: false");
+            expect(mockToast).toBeCalledWith("UCSBorganisation Updated - orgCode: GDSC orgTranslationShort: Google Developer Seniors Clubs orgTranslation: Google Developer Student Clubs inactive: false");
             
             expect(mockNavigate).toBeCalledWith({ "to": "/UCSBOrganization" });
 
@@ -160,20 +160,19 @@ describe("UCSBorganisationEditPage tests", () => {
             const inactiveField = screen.getByTestId("UCSBorganisationForm-inactive");
             const submitButton = screen.getByTestId("UCSBorganisationForm-submit");
 
-            expect(orgCodeField).toHaveValue("GDSC");
+            expect(orgCodeField).toHaveValue("GDSC"); 
             expect(orgTranslationShortField).toHaveValue("Google Developer Student Clubs");
             expect(orgTranslationField).toHaveValue("Google Developer Student Clubs");
             expect(inactiveField).toBeChecked("true");
 
-            fireEvent.change(orgTranslationShortField, { target: { value: 'Goblin Dance Squad Contest' } })
+            fireEvent.change(orgTranslationShortField, { target: { value: "Goblin Dance Squad Contest" } })
             fireEvent.change(orgTranslationField, { target: { value: 'Goblin Dance Squad Contest' } })
             fireEvent.change(inactiveField, { target: { value: 'true' } });
             fireEvent.click(submitButton);
 
-            
-            await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("UCSBorganisation Updated - orgCode: GDSC orgTranslationShort: Goblin Dance Squad Contest orgTranslation: Goblin Dance Squad Contest inactive: false"); 
 
+            await waitFor(() => expect(mockToast).toBeCalled());
+            expect(mockToast).toBeCalledWith("UCSBorganisation Updated - orgCode: GDSC orgTranslationShort: Google Developer Seniors Clubs orgTranslation: Google Developer Student Clubs inactive: false");
             expect(mockNavigate).toBeCalledWith({ "to": "/UCSBOrganization" });
         });
 

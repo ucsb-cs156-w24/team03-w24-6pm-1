@@ -1,5 +1,5 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
-import { UCSBorganisationFixture, restaurantFixtures } from "fixtures/UCSBorganisationFixture";
+import { UCSBorganisationFixture } from "fixtures/UCSBorganisationFixture";
 import UCSBorganisationTable from "main/components/UCSBorganisation/UCSBorganisationTable";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -165,6 +165,8 @@ describe("UCSBorganisationTable tests", () => {
     // assert - check that the expected content is rendered
     expect(await screen.findByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("GDSC");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`)).toHaveTextContent("Google Developer Student Clubs");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("Google Developer Student Clubs");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-inactive`)).toHaveTextContent("false");
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();

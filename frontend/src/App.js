@@ -7,22 +7,21 @@ import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
-import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
-import RestaurantCreatePage from "main/pages/Restaurants/RestaurantCreatePage";
-import RestaurantEditPage from "main/pages/Restaurants/RestaurantEditPage";
-
-import PlaceholderIndexPage from "main/pages/Placeholder/PlaceholderIndexPage";
-import PlaceholderCreatePage from "main/pages/Placeholder/PlaceholderCreatePage";
-import PlaceholderEditPage from "main/pages/Placeholder/PlaceholderEditPage";
 
 import UCSBorganisationIndexPage from "main/pages/UCSBorganisation/UCSBorganisationIndexPage";
 import UCSBorganisationCreatePage from "main/pages/UCSBorganisation/UCSBorganisationCreatePage";
 import UCSBorganisationEditPage from "main/pages/UCSBorganisation/UCSBorganisationEditPage";
 
 
+import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
+import RestaurantCreatePage from "main/pages/Restaurants/RestaurantCreatePage";
+import RestaurantEditPage from "main/pages/Restaurants/RestaurantEditPage";
+
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
+
 
 function App() {
   const { data: currentUser } = useCurrentUser();
@@ -35,6 +34,7 @@ function App() {
         {
           hasRole(currentUser, "ROLE_ADMIN") && <Route exact path="/admin/users" element={<AdminUsersPage />} />
         }
+
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
@@ -65,21 +65,7 @@ function App() {
             </>
           )
         }
-         {
-          hasRole(currentUser, "ROLE_USER") && (
-            <>
-              <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
-            </>
-          )
-        }
-        {
-          hasRole(currentUser, "ROLE_ADMIN") && (
-            <>
-              <Route exact path="/placeholder/edit/:id" element={<PlaceholderEditPage />} />
-              <Route exact path="/placeholder/create" element={<PlaceholderCreatePage />} />
-            </>
-          )
-        }
+
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
@@ -95,6 +81,8 @@ function App() {
             </>
           )
         }
+
+        
       </Routes>
     </BrowserRouter>
   );
