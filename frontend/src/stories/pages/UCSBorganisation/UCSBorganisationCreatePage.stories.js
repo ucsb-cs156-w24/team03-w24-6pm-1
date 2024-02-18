@@ -3,7 +3,6 @@ import { apiCurrentUserFixtures } from "fixtures/currentUserFixtures";
 import { systemInfoFixtures } from "fixtures/systemInfoFixtures";
 import { rest } from "msw";
 
-import UCSBorganisationCreatePage from "main/pages/UCSBorganisation/UCSBorganisationCreatePage"
 import UCSBorganisationCreatePage from 'main/pages/UCSBorganisation/UCSBorganisationCreatePage';
 
 export default {
