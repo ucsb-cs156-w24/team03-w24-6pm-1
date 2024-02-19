@@ -8,9 +8,15 @@ import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
 
+import UCSBDiningCommonsMenuItemCreatePage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
+import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
+
+
 import UCSBorganisationIndexPage from "main/pages/UCSBorganisation/UCSBorganisationIndexPage";
 import UCSBorganisationCreatePage from "main/pages/UCSBorganisation/UCSBorganisationCreatePage";
 import UCSBorganisationEditPage from "main/pages/UCSBorganisation/UCSBorganisationEditPage";
+
 
 
 import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
@@ -72,6 +78,23 @@ function App() {
         }
 
         {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/diningcommonsmenuitem" element={<UCSBDiningCommonsMenuItemIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/diningcommonsmenuitem/edit/:id" element={<UCSBDiningCommonsMenuItemEditPage />} />
+              <Route exact path="/diningcommonsmenuitem/create" element={<UCSBDiningCommonsMenuItemCreatePage />} />
+            </>
+          )
+        }
+
+        {
+
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/UCSBOrganization" element={<UCSBorganisationIndexPage />} />

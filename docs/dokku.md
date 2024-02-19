@@ -37,16 +37,28 @@ deploy branches other than `main` and see what happens.
 
 1. Create the app: 
    ```
+<<<<<<< HEAD
    dokku apps:create team03-yourName-dev
+=======
+   dokku apps:create team02-yourName-dev
+>>>>>>> 9e996eaf685466e9a6dea60a488b2c26b17bcc31
    ```
 2. Do steps (2) through (5) above.
 3. Sync with repo (substitute your own team name and branch name):
    ```
+<<<<<<< HEAD
    dokku git:sync https://github.com/ucsb-cs156-f23/team03-f23-6pm-4 team03-yourName your-branch-name
    ```
 4. Build app:
    ```
    dokku ps:rebuild team03-yourName-dev
+=======
+   dokku git:sync https://github.com/ucsb-cs156-w24/team02-w24-6pm-4 team02-yourName your-branch-name
+   ```
+4. Build app:
+   ```
+   dokku ps:rebuild team02-yourName-dev
+>>>>>>> 9e996eaf685466e9a6dea60a488b2c26b17bcc31
    ```
 
 Any time you need to redeploy, you can do so by repeating steps 3 and 4.
