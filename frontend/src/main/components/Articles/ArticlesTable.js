@@ -6,10 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/articlesUti
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function ArticlesTable({
-    articles,
-    currentUser,
-    testIdPrefix = "ArticlesTable" }) {
+export default function ArticlesTable({ articles, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -61,13 +58,13 @@ export default function ArticlesTable({
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "ArticlesTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "ArticlesTable"));
     } 
 
     return <OurTable
         data={articles}
         columns={columns}
-        testid={testIdPrefix}
+        testid={"ArticlesTable"}
     />;
 };
