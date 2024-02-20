@@ -15,21 +15,22 @@ export default function MenuItemReviewTable({
         navigate(`/menuitemreview/edit/${cell.row.values.id}`);
     };
 
-    // Stryker disable everything
+   // Stryker disable all : hard to test for query caching
 
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
         ["/api/menuitemreview/all"]
     );
-    // Stryker restore everything 
+     // Stryker restore all 
 
+    // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
     
     const columns = [
         {
             Header: 'id',
-            accessor: 'id', 
+            accessor: 'id', // accessor is the "key" in the data
         },
         {
             Header: 'ItemId',
