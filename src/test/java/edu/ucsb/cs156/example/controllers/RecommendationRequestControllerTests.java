@@ -623,7 +623,7 @@ public class RecommendationRequestControllerTests extends ControllerTestCase {
                                         .explanation("EDITED*for grad school")
                                         .dateRequested(ldt3)
                                         .dateNeeded(ldt4)
-                                        //.done(false)
+                                        .done(false)
                                         .build();
 
                 String requestBody = mapper.writeValueAsString(reqEdited);

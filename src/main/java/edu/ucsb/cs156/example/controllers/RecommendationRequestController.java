@@ -218,7 +218,7 @@ public class RecommendationRequestController extends ApiController {
         @Parameter(name="id") @RequestParam Long id,
         @RequestBody @Valid RecommendationRequest incoming) {
         
-        log.info("incoming={}", incoming.toString());
+        //log.info("incoming={}", incoming.toString());
 
         RecommendationRequest rq = recReqRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException(RecommendationRequest.class, id));
