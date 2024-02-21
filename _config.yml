@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-w24/team03-w24-6pm-1
 owner: ucsb-cs156-w24
 repo_name: team03-w24-6pm-1
-pull_requests: [{"author":{"id":"U_kgDOBtn4Uw","is_bot":false,"login":"shashank790","name":""},"headRefName":"Shashank-Articles","number":77,"title":"sb added Articles.json db migration file","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/77"},{"author":{"id":"U_kgDOB3E2LA","is_bot":false,"login":"sanilkatula","name":""},"headRefName":"Jenil-RecommendationRequests","number":76,"title":"Jenil recommendation requests","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/76"}]
+pull_requests: [{"author":{"id":"U_kgDOB3E2LA","is_bot":false,"login":"sanilkatula","name":""},"headRefName":"Jenil-RecommendationRequests","number":76,"title":"Jenil recommendation requests","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/76"}]
