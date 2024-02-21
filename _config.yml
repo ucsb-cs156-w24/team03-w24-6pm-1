@@ -23,4 +23,4 @@ repo_name: "TBD"
 repo: ucsb-cs156-w24/team03-w24-6pm-1
 owner: ucsb-cs156-w24
 repo_name: team03-w24-6pm-1
-pull_requests: [{"author":{"id":"MDQ6VXNlcjY4Nzc4MDE5","is_bot":false,"login":"phillylim","name":"Philly Lim"},"headRefName":"PhillyStorybookChange","number":83,"title":"Update UCSBDiningCommonsMenuItemForm.stories.js","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/83"},{"author":{"id":"U_kgDOB3Dokw","is_bot":false,"login":"jenil-prajapati","name":""},"headRefName":"Jenil-RecommendationRequests","number":82,"title":"jp - adding app.js & mig","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/82"}]
+pull_requests: [{"author":{"id":"U_kgDOB3Dokw","is_bot":false,"login":"jenil-prajapati","name":""},"headRefName":"Jenil-RecommendationRequests","number":82,"title":"jp - adding app.js & mig","url":"https://github.com/ucsb-cs156-w24/team03-w24-6pm-1/pull/82"}]
