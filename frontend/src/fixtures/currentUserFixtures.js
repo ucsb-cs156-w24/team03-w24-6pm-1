@@ -131,11 +131,6 @@ const currentUserFixtures = {
             ]
         },
     },
-    notLoggedIn: {
-        loggedIn: false,
-        root: {
-        },
-    }
 };
 
 export { currentUserFixtures, apiCurrentUserFixtures };
