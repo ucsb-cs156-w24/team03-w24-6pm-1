@@ -1,10 +1,6 @@
-# STARTER-team03
+# team03-w24-6pm-1
 
 Instructions: <https://ucsb-cs156.github.io/s24/lab/team03.html>
-
-TODO: change heading above to your repo name, e.g. `# team03-s24-4pm-4`
-
-TODO: Add a link to the deployed Dokku app for your team here, e.g.
 
 Deployments:
 
@@ -13,14 +9,15 @@ Deployments:
 
 TODO: Fill in this table with correct information. 
 
-| Table                     | Name         | Github Id |
-|---------------------------|--------------|-----------|
-| UCSBDiningCommonsMenuItem |              |           |
-| UCSBOrganization          |              |           |
-| RecommendationRequest     |              |           |
-| MenuItemReview            |              |           |
-| HelpRequest               |              |           |
-| Articles                  |              |           |
+| Table                       | Team Member        | Github Id        |
+|-----------------------------|--------------------|------------------|
+| `UCSBDiningCommonsMenuItem` | Philly Lim         | phillylim        |
+| `UCSBOrganization`          | Sanil Katula       | sanilkatula              |
+| `RecommendationRequest`     | Jenil Prajapati    | jenil-prajapati       |
+| `MenuItemReview`            | Kushagra Kanaujia  | KushagraKanaujia |
+| `HelpRequest`               | Victor Nardi       | vcnardi524      |
+| `Articles`                  | Shashank Bhagwani  | shashank790        |
+
 
 Remember though, that in spite of these initial  assignments, it is still
 a team project.  Please help other team members to finish their work
